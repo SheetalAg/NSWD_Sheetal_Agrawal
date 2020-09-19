@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Bootstrap CSS!-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!--Owl Carousel!-->
+	<link rel="stylesheet" type="text/css" href="C:\Users\LENOVO\Desktop\Nibodh\OwlCarousel2-2.3.4\dist\assets\owl.carousel.min.css">
+
+  <link rel="stylesheet" type="text/css" href="C:\Users\LENOVO\Desktop\Nibodh\OwlCarousel2-2.3.4\dist\assets\owl.theme.default.min.css">
+	<!--FontAwesome!-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+	<title>Explore Our Products</title>
+	<style type="text/css">
+		h3.h3{
+			text-align:center;
+			
+			margin: 40px;
+			font-size:1.7em;
+		}
+
+.product-grid
+{
+	text-align:center;
+	padding:0 0 72px;
+	border:1px solid rgba(0,0,0,.1);
+	overflow:hidden;
+	position:relative;
+	z-index:1
+}
+.product-grid .product-image
+{
+	position:relative;
+	transition:all .3s ease 0s;
+}
+.product-grid .product-image
+ a{
+ 	display:block;
+ }
+.product-grid .product-image img{
+	width:100%;
+	height:200px;
+}
+.product-grid .pic-1{
+	opacity:1;
+	transition:all .3s ease-out 0s;
+}
+.product-grid:hover .pic-1{
+	opacity:1;
+}
+.product-grid .pic-2{
+	opacity:0;
+	position:absolute;
+	top:0;left:0;
+	transition:all .3s ease-out 0s
+}
+.product-grid:hover .pic-2{
+	opacity:1
+}
+.product-grid .social
+{width:150px;
+	padding:0;
+	margin:0;
+	list-style:none;
+	opacity:0;
+	transform:translateY(-50%)
+	 translateX(-50%);
+	 position:absolute;
+	 top:60%;
+	 left:50%;
+	 z-index:1;
+	 transition:all .3s ease 0s
+	}
+.product-grid:hover .social
+{
+	opacity:1;
+	top:50%
+}
+.product-grid .social li{
+	display:inline-block
+}
+.product-grid .social li a{
+	color:#fff;
+	background-color:#333;
+	font-size:16px;
+	line-height:40px;
+	text-align:center;
+	height:40px;
+	width:40px;
+	margin:0 2px;
+	display:block;
+	position:relative;
+	transition:all .3s ease-in-out
+}
+.product-grid .social li a:hover
+{
+	color:#fff;
+	background-color:#ef5777
+}
+.product-grid .social li a:after,.product-grid .social li a:before{
+	content:attr(data-tip);
+	color:#fff;
+	background-color:#000;
+	font-size:12px;
+	letter-spacing:1px;
+	line-height:20px;
+	padding:1px 5px;
+	white-space:nowrap;
+	opacity:0;
+	transform:translateX(-50%);
+	position:absolute;
+	left:50%;
+	top:-30px
+}
+.product-grid .social li a:after{
+	content:'';
+	height:15px;
+	width:15px;
+	border-radius:0;
+	transform:translateX(-50%) rotate(45deg);
+	top:-20px;
+	z-index:-1
+}
+.product-grid .social li a:hover:after,.product-grid .social li a:hover:before{opacity:1}
+.product-grid .product-discount-label,.product-grid .product-new-label{
+	color:#fff;
+	background-color:#ef5777;
+	font-size:12px;
+	text-transform:uppercase;
+	padding:2px 7px;
+	display:block;
+	position:absolute;
+	top:10px;
+	left:0
+}
+.product-grid .product-discount-label{
+	background-color:#333;
+	left:auto;
+	right:0
+}
+.product-grid .rating{
+	color:#FFD200;
+	font-size:12px;
+	padding:12px 0 0;
+	margin:15px;
+	list-style:none;
+	position:relative;
+	z-index:1;
+}
+.product-grid .rating li.disable{
+	color:rgba(0,0,0,.2)
+}
+.product-grid .product-content{
+	background-color:#fff;
+	text-align:center;
+	padding:12px 0;
+	margin:0 auto;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:-27px;
+	z-index:1;
+	transition:all .3s
+}
+.product-grid:hover .product-content{
+	bottom:0
+}
+.product-grid .title{
+	font-size:13px;
+	font-weight:400;
+	letter-spacing:.5px;
+	text-transform:capitalize;
+	margin:0 0 10px;
+	transition:all .3s ease 0s
+}
+.product-grid .title a{
+	color:#828282
+}
+.product-grid .title a:hover,.product-grid:hover .title a{
+	color:#ef5777
+}
+.product-grid .price{
+	color:#333;
+	font-size:17px;
+	font-weight:700;
+	letter-spacing:.6px;
+	margin-bottom:8px;
+	text-align:center;
+	transition:all .3s
+}
+.product-grid .price span{
+	color:#999;
+	font-size:13px;
+	font-weight:400;
+	text-decoration:line-through;
+	margin-left:3px;
+	display:inline-block
+}
+.product-grid .add-to-cart{
+	color:#000;
+	font-size:13px;
+	font-weight:600
+}
+@media only screen and (max-width:990px){
+	.product-grid{
+		margin-bottom:30px;
+	}
+}
+.container1
+{
+    padding:2px 16px;
+}
+
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<!--navbar!-->
+		<nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+			<div class="container">
+				<a href="" class="navbar-brand text-warning font-weight-bold">NSWD Jewellers</a>
+				<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsenavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse text-center" id="collapsenavbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a href="index.html" class="nav-link text-white font-weight-bold">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="product.html" class="nav-link text-white font-weight-bold">Products</a>
+						</li>
+					
+						<li class="nav-item">
+							<a href="about.html" class="nav-link text-white font-weight-bold">About Us</a>
+						</li>
+					
+						<li class="nav-item">
+							<a href="contact.html" class="nav-link text-white font-weight-bold">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</nav>
+	
+    <h3 class="h3" style="margin-top: 80px;">Diamond </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                        <img class="pic-1" src="Images/d1.jpeg">
+                         <ul class="social">
+                       
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Diamond Double Ring</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>160000.00
+                                            </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/d2.jpeg">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Diamond Ring</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                        
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/d3.jpeg">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Diamond Earrings</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                     
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="Images/d4.jpeg">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Diamond Necklace</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                       
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!--Gold!-->
+<div class="container">
+    <h3 class="h3">Gold </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                        <img class="pic-1" src="Images/g1.jpeg">
+                         <ul class="social">
+                       
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Gold Necklace</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>160000.00
+                        
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/g2.jpeg">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Gold Earrings</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                        
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/g3.png">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Gold Necklace & Earrings</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                        
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="Images/g4.jpeg">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Gold Necklace & Earrings</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                       
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!--Platinum!-->
+<div class="container">
+    <h3 class="h3">Platinum </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                        <img class="pic-1" src="Images/p1.jpeg">
+                         <ul class="social">
+                       
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Platinum Ring</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>160000.00
+                       
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/p2.jpeg">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Platinum Necklace</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                       
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    
+                        <img class="pic-1" src="Images/p3.jpeg">
+                        
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Platinum Necklace</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                       
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="Images/p4.jpeg">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title">Platinum Earrings</h3>
+                    <div class="price"><i class="fas fa-rupee-sign"></i>500000.00
+                        
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<!---Footer Code--->
+    
+<footer class="page-footer font-small  unique-color-dark">
+
+  <div style="background-color: #ff8c00;">
+    
+
+     
+
+  <!-- Footer Links -->
+  <div class="container1 text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">NSWD Jewellers</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>It is one of the world’s leading jewellery companies in India. The company deals with diamond manufacturing, jewellery manufacturing and retailing, gold & platinum, and diamond studded jewellery.NSWD Company is an integrated diamond company.</p>
+
+      </div>
+      <!-- Grid column -->
+
+     
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#!">FAQ'S</a>
+        </p>
+        <p>
+          <a href="#!">Help</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i>Madhya Pradesh</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i>agrawalsheetal13@gmail.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> + 91 123456789</p>
+        </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+
+
+ <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 "> Copyright © 2020: NSWD Jewellers. All Rights Reserved.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!--jQuery!-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<!--Owl Carousel!-->
+<script type="text/javascript" src="C:\Users\LENOVO\Desktop\Nibodh\OwlCarousel2-2.3.4\dist\owl.carousel.min.js"></script>
+
+<!--Bootstrap Js!-->
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
